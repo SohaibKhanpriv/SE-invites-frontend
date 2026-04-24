@@ -1,0 +1,137 @@
+/* ── Hero section ── */
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 120px 40px 80px;
+  overflow: hidden;
+}
+
+.hero-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-family: "Cormorant SC", serif;
+  font-size: 13px;
+  letter-spacing: 0.5em;
+  color: var(--dust);
+  margin-bottom: 28px;
+}
+
+.hero-title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: clamp(48px, 8.5vw, 130px);
+  line-height: 0.92;
+  color: var(--maroon-deep);
+  letter-spacing: -0.02em;
+}
+
+.hero-title .script {
+  font-family: "Pinyon Script", cursive;
+  color: var(--maroon);
+  font-size: 1.25em;
+  display: block;
+  line-height: 1;
+  margin: -0.08em 0;
+}
+
+.hero-sub {
+  margin-top: 28px;
+  font-size: 21px;
+  color: #5a2a30;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+.hero-ctas {
+  margin-top: 36px;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* 3D hero stage */
+.hero-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  perspective: 1400px;
+  perspective-origin: 50% 60%;
+}
+
+/* floating hero objects */
+.float-obj {
+  position: absolute;
+  will-change: transform;
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 30px 40px rgba(74, 20, 28, 0.35));
+}
+
+/* SE hexagon badge */
+.hex-badge {
+  width: 240px;
+  aspect-ratio: 1;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: #fdf8ef;
+  clip-path: polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0% 50%);
+  box-shadow: 0 40px 80px -20px rgba(74, 20, 28, 0.45);
+  transform-style: preserve-3d;
+}
+
+.hex-badge::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  clip-path: polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0% 50%);
+  border: 1.5px solid var(--maroon);
+  opacity: 0.25;
+}
+
+/* scattered confetti petals */
+.petal {
+  position: absolute;
+  width: 18px;
+  height: 22px;
+  background: var(--maroon);
+  border-radius: 60% 60% 70% 70% / 50% 50% 100% 100%;
+  opacity: 0.5;
+  transform-origin: 50% 100%;
+}
+
+/* string lights */
+.lights-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 80px;
+  pointer-events: none;
+}
+
+.light-bulb {
+  position: absolute;
+  width: 8px;
+  height: 10px;
+  border-radius: 60% 60% 50% 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #fff6d4,
+    #f6c96a 60%,
+    #d09638
+  );
+  box-shadow: 0 0 14px #ffd68a, 0 0 28px #f6b85e;
+  animation: glow 2.5s ease-in-out infinite;
+}

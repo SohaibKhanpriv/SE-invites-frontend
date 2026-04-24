@@ -1,0 +1,30 @@
+/* ── Marquee of categories ── */
+
+.marquee {
+  overflow: hidden;
+  background: var(--maroon-deep);
+  color: var(--cream);
+  padding: 22px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 60px;
+  animation: marquee 40s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.marquee span {
+  font-family: "Pinyon Script", cursive;
+  font-size: 38px;
+  line-height: 1;
+  color: var(--cream);
+}
+
+.marquee .dot {
+  color: var(--gold-soft);
+  font-family: serif;
+}

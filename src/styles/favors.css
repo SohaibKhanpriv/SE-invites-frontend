@@ -1,0 +1,91 @@
+/* ── Favor cards section ── */
+
+.favors-section {
+  padding: 140px 40px;
+  background: linear-gradient(180deg, var(--cream-soft), #f0dfc8);
+  position: relative;
+  overflow: hidden;
+}
+
+.favors-header {
+  max-width: 1280px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.favors-header .ornament {
+  margin-top: 18px;
+}
+
+.favors-row {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .favors-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .favors-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.favor-card {
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--maroon-deep);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.favor-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.favor-card:hover {
+  transform: translateY(-6px);
+}
+
+.favor-card:hover img {
+  transform: scale(1.08);
+}
+
+.favor-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 55%,
+    rgba(26, 11, 16, 0.85) 100%
+  );
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: var(--cream);
+}
+
+.favor-card-overlay .kind {
+  font-family: "Cormorant SC", serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--gold-soft);
+  margin-bottom: 6px;
+}
+
+.favor-card-overlay .title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  line-height: 1.15;
+}

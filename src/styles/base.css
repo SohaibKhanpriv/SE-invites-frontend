@@ -1,0 +1,197 @@
+/* ── Reset & global base ── */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+html,
+body {
+  background: var(--cream-soft);
+  color: var(--maroon-ink);
+  font-family: "Cormorant Garamond", "Cormorant", Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: clip !important;
+  font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+  background: radial-gradient(
+      1200px 800px at 10% -10%,
+      #f9e6d3 0%,
+      transparent 60%
+    ),
+    radial-gradient(900px 600px at 110% 20%, #f1d9cc 0%, transparent 55%),
+    radial-gradient(800px 800px at 50% 120%, #f3dcc6 0%, transparent 60%),
+    var(--cream-soft);
+}
+
+/* warm film grain */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    rgba(107, 31, 42, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+  z-index: 1;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Font utility classes ── */
+.font-script {
+  font-family: var(--font-script, "Pinyon Script", cursive);
+  font-weight: 400;
+}
+.font-display,
+.section-title,
+.hero-title,
+h1,
+h2,
+h3 {
+  font-family: var(
+    --font-display,
+    "Cormorant Garamond",
+    serif
+  ) !important;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.font-script,
+.hero-title .script,
+.section-title em,
+.envelope-card .from,
+.marquee span,
+.tray-chip + div {
+  font-family: var(--font-script, "Pinyon Script", cursive);
+}
+.font-mono,
+.section-eyebrow,
+.nav-links a,
+.nav-cta,
+.btn {
+  font-family: var(--font-mono, "Cormorant SC", serif);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.font-body {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+}
+
+/* ── Shared section ── */
+section {
+  position: relative;
+  z-index: 2;
+}
+
+.section-eyebrow {
+  font-family: "Cormorant SC", serif;
+  font-size: 12px;
+  letter-spacing: 0.36em;
+  color: var(--dust);
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 68px);
+  line-height: 1.05;
+  color: var(--maroon-deep);
+  letter-spacing: -0.01em;
+}
+
+.section-title em {
+  font-family: "Pinyon Script", cursive;
+  font-style: normal;
+  color: var(--maroon);
+  font-size: 1.15em;
+  line-height: 1;
+}
+
+.section-lede {
+  max-width: 560px;
+  font-size: 19px;
+  line-height: 1.55;
+  color: #4a2a2f;
+}
+
+/* ── Ornamental divider ── */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--gold);
+  font-size: 20px;
+}
+.ornament::before,
+.ornament::after {
+  content: "";
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ── Button ── */
+.btn {
+  padding: 14px 28px;
+  font-family: "Cormorant SC", serif;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--maroon);
+}
+
+.btn-primary {
+  background: var(--maroon);
+  color: var(--cream);
+}
+.btn-primary:hover {
+  background: var(--maroon-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(107, 31, 42, 0.5);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--maroon);
+}
+.btn-ghost:hover {
+  background: var(--maroon);
+  color: var(--cream);
+}
+
+/* ── Scroll progress bar ── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--maroon), var(--gold));
+  z-index: 100;
+  transition: width 0.1s linear;
+}

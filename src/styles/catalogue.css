@@ -1,0 +1,67 @@
+/* ── Catalogue grid (masonry) ── */
+
+.catalogue-section {
+  padding: 140px 40px;
+  background: var(--maroon-ink);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.catalogue-header {
+  max-width: 1280px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.catalogue-header .section-eyebrow {
+  color: var(--gold-soft);
+}
+
+.catalogue-header h2 {
+  color: var(--cream);
+}
+
+.masonry {
+  max-width: 1280px;
+  margin: 0 auto;
+  columns: 4 200px;
+  column-gap: 18px;
+}
+
+.masonry > div {
+  break-inside: avoid;
+  margin-bottom: 18px;
+  overflow: hidden;
+  border-radius: 2px;
+  position: relative;
+  transition: transform 0.4s;
+}
+
+.masonry > div:hover {
+  transform: scale(1.02);
+}
+
+.masonry img {
+  width: 100%;
+  display: block;
+}
+
+.masonry .tile-label {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-family: "Cormorant SC", serif;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--cream);
+  background: rgba(26, 11, 16, 0.7);
+  padding: 5px 10px;
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.masonry > div:hover .tile-label {
+  opacity: 1;
+}

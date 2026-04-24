@@ -1,0 +1,120 @@
+/* ── Design tokens & theme palettes ── */
+
+:root {
+  --maroon: #6b1f2a;
+  --maroon-deep: #4a141c;
+  --maroon-ink: #2a0b10;
+  --cream: #f6ecdf;
+  --cream-soft: #fbf5ec;
+  --cream-warm: #efe2cf;
+  --gold: #c9a24b;
+  --gold-soft: #e6c989;
+  --rose: #d88a9c;
+  --dust: #b9826a;
+  --ink: #1a1113;
+}
+
+/* ── Palette themes ── */
+body[data-palette="maroon"] {
+  --maroon: #6b1f2a;
+  --maroon-deep: #4a141c;
+  --maroon-ink: #2a0b10;
+  --cream: #f6ecdf;
+  --cream-soft: #fbf5ec;
+  --cream-warm: #efe2cf;
+  --gold: #c9a24b;
+  --gold-soft: #e6c989;
+  --rose: #d88a9c;
+  --dust: #b9826a;
+}
+
+body[data-palette="pearl"] {
+  --maroon: #a87550;
+  --maroon-deep: #7a5236;
+  --maroon-ink: #3d2818;
+  --cream: #fbf6ef;
+  --cream-soft: #fefaf3;
+  --cream-warm: #f4e8d6;
+  --gold: #d4a85a;
+  --gold-soft: #ecd4a0;
+  --rose: #e8b8b0;
+  --dust: #c9a98a;
+}
+
+body[data-palette="henna"] {
+  --maroon: #2d5a3e;
+  --maroon-deep: #1b3a28;
+  --maroon-ink: #0d1f15;
+  --cream: #f4ecd8;
+  --cream-soft: #faf3e2;
+  --cream-warm: #ead9b8;
+  --gold: #c9a24b;
+  --gold-soft: #e6c989;
+  --rose: #c87a7a;
+  --dust: #8a7a5a;
+}
+
+/* ── Type voices ── */
+body[data-type="script"] {
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-mono: "Cormorant SC", serif;
+  --font-script: "Pinyon Script", cursive;
+}
+
+body[data-type="editorial"] {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-mono: "Inter", sans-serif;
+  --font-script: "Playfair Display", serif;
+}
+
+body[data-type="calligraphic"] {
+  --font-display: "Amiri", "Cormorant Garamond", serif;
+  --font-mono: "Cormorant SC", serif;
+  --font-script: "Aref Ruqaa", "Pinyon Script", serif;
+}
+
+/* editorial script overrides */
+body[data-type="editorial"] .hero-title .script,
+body[data-type="editorial"] .section-title em,
+body[data-type="editorial"] .marquee span,
+body[data-type="editorial"] .envelope-card .from {
+  font-family: "Playfair Display", serif !important;
+  font-style: italic;
+}
+
+/* calligraphic script overrides */
+body[data-type="calligraphic"] .hero-title .script,
+body[data-type="calligraphic"] .section-title em {
+  font-family: "Aref Ruqaa", serif !important;
+  font-style: normal;
+}
+
+/* ── Motion temperament ── */
+body[data-motion="still"] {
+  --motion-mult: 0.35;
+  --parallax-mult: 0.3;
+}
+body[data-motion="flowing"] {
+  --motion-mult: 1;
+  --parallax-mult: 1;
+}
+body[data-motion="celebratory"] {
+  --motion-mult: 1.6;
+  --parallax-mult: 1.8;
+}
+
+body[data-motion="still"] .light-bulb,
+body[data-motion="still"] .firefly,
+body[data-motion="still"] .petal {
+  animation-duration: 8s !important;
+}
+body[data-motion="celebratory"] .light-bulb,
+body[data-motion="celebratory"] .firefly {
+  animation-duration: 1.2s !important;
+}
+body[data-motion="celebratory"] .marquee-track {
+  animation-duration: 22s !important;
+}
+body[data-motion="still"] .marquee-track {
+  animation-duration: 90s !important;
+}

@@ -1,0 +1,66 @@
+/* ── CTA footer section ── */
+
+.cta-section {
+  padding: 160px 40px 120px;
+  text-align: center;
+  background: radial-gradient(
+      600px 400px at 50% 0%,
+      rgba(107, 31, 42, 0.12),
+      transparent 70%
+    ),
+    var(--cream-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section .hex-badge-big {
+  width: 180px;
+  aspect-ratio: 1;
+  margin: 0 auto 30px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  clip-path: polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0% 50%);
+  box-shadow: 0 30px 60px -15px rgba(74, 20, 28, 0.4);
+}
+
+.cta-ig {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 24px;
+  color: var(--maroon);
+  text-decoration: none;
+  font-family: "Cormorant SC", serif;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+}
+
+.cta-ig svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Footer */
+footer {
+  background: var(--maroon-ink);
+  color: rgba(246, 236, 223, 0.75);
+  padding: 48px 40px 30px;
+  text-align: center;
+  font-family: "Cormorant SC", serif;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  position: relative;
+  z-index: 2;
+}
+
+footer .ornament {
+  margin: 0 auto 18px;
+  color: var(--gold-soft);
+}
+
+footer .ornament::before,
+footer .ornament::after {
+  background: var(--gold-soft);
+  opacity: 0.5;
+}
