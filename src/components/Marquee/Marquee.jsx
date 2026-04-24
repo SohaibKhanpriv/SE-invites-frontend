@@ -10,7 +10,7 @@ export function Marquee() {
         {doubled.map((text, i) => (
           <Fragment key={i}>
             <span>{text}</span>
-            <span className="dot">&starf;</span>
+            <span className="dot">✦</span>
           </Fragment>
         ))}
       </div>

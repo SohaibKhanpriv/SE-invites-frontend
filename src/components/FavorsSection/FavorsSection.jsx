@@ -8,7 +8,7 @@ export function FavorsSection() {
         <h2 className="section-title" style={{ marginTop: 14 }}>
           Little <em>keepsakes</em> your guests will hold onto.
         </h2>
-        <div className="ornament">&starf;</div>
+        <div className="ornament">✦</div>
       </div>
       <div className="favors-row">
         {FAVORS.map((f, i) => (
