@@ -5,7 +5,7 @@ import { Nav } from './components/Nav/Nav';
 import { Hero } from './components/Hero/Hero';
 import { Marquee } from './components/Marquee/Marquee';
 import { TraysSection } from './components/TraysSection/TraysSection';
-import { BasketSection } from './components/BasketSection/BasketSection';
+import { BasketSectionWithTabs } from './components/BasketBuilder/BasketSectionWithTabs';
 import { InvitesSection } from './components/InvitesSection/InvitesSection';
 import { FavorsSection } from './components/FavorsSection/FavorsSection';
 import { CatalogueSection } from './components/CatalogueSection/CatalogueSection';
@@ -39,7 +39,7 @@ export default function App() {
       <Hero />
       <Marquee />
       <TraysSection />
-      <BasketSection />
+      <BasketSectionWithTabs tweaks={theme} />
       <InvitesSection />
       <FavorsSection />
       <CatalogueSection />
