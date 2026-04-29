@@ -520,3 +520,241 @@
     font-size: 20px;
   }
 }
+
+/* ── 3D Preview Tab ─────────────────────────────────────────────── */
+
+.three-stage {
+  background: transparent;
+  cursor: default;
+}
+
+/* Style toggle (Crate / Wicker) */
+.three-style-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.style-btn {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid rgba(212,175,55,0.35);
+  background: transparent;
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.style-btn.active,
+.style-btn:hover {
+  background: rgba(212,175,55,0.15);
+  border-color: var(--gold-soft);
+  color: var(--gold-soft);
+}
+
+/* Size selector */
+.three-size-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.size-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 4px;
+  border: 1px solid rgba(212,175,55,0.25);
+  background: transparent;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.2s, border-color 0.2s;
+  color: var(--cream);
+}
+
+.size-btn.active,
+.size-btn:hover {
+  background: rgba(212,175,55,0.12);
+  border-color: var(--gold-soft);
+}
+
+.size-name {
+  font-size: 11px;
+  font-family: var(--font-display);
+  color: var(--gold-soft);
+  letter-spacing: 0.08em;
+}
+
+.size-slots {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(246,236,223,0.6);
+}
+
+.size-cost {
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: rgba(246,236,223,0.5);
+}
+
+/* Capacity bar */
+.capacity-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.capacity-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(246,236,223,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.capacity-fill {
+  height: 100%;
+  background: var(--gold-soft);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.capacity-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(246,236,223,0.5);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Placed items overlay */
+.three-items-overlay {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.three-item-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px 4px 4px;
+  background: rgba(20, 8, 4, 0.72);
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 20px;
+  color: var(--cream);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  backdrop-filter: blur(6px);
+}
+
+.three-item-chip:hover {
+  border-color: #c0392b;
+  background: rgba(192,57,43,0.18);
+}
+
+.three-item-chip img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chip-remove {
+  margin-left: 2px;
+  opacity: 0.5;
+  font-size: 13px;
+}
+
+.three-item-chip:hover .chip-remove {
+  opacity: 1;
+  color: #e74c3c;
+}
+
+/* Upgrade modal */
+.upgrade-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.upgrade-modal {
+  background: #1a0a06;
+  border: 1px solid rgba(212,175,55,0.4);
+  padding: 32px 36px;
+  max-width: 420px;
+  width: 90%;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.upgrade-modal-text {
+  font-family: var(--font-body);
+  color: var(--cream);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.upgrade-modal-text strong {
+  color: var(--gold-soft);
+}
+
+.upgrade-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.upgrade-btn {
+  padding: 10px 24px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.upgrade-btn.primary {
+  background: var(--gold-soft);
+  color: #1a0a06;
+  border: 1px solid var(--gold-soft);
+}
+
+.upgrade-btn.primary:hover {
+  background: #e5c048;
+}
+
+.upgrade-btn.secondary {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid rgba(246,236,223,0.3);
+}
+
+.upgrade-btn.secondary:hover {
+  border-color: var(--cream);
+}

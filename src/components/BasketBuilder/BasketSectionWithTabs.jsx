@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { BasketSection as OriginalBasketSection } from '../BasketSection/BasketSection';
 import { BasketBuilderScene } from './BasketBuilderScene';
+import { ThreeBasketBuilder } from '../ThreeBasketBuilder/ThreeBasketBuilder';
 
 const TABS = [
-  { id: 'demo', num: '01', label: 'Watch the demo' },
+  { id: 'demo',  num: '01', label: 'Watch the demo' },
   { id: 'build', num: '02', label: 'Build your own' },
+  { id: 'three', num: '03', label: '3D Preview' },
 ];
 
 export function BasketSectionWithTabs({ tweaks = {} }) {
@@ -26,11 +28,15 @@ export function BasketSectionWithTabs({ tweaks = {} }) {
       </div>
 
       {/* Tab content */}
-      {activeTab === 'demo' ? (
-        <OriginalBasketSection />
-      ) : (
+      {activeTab === 'demo' && <OriginalBasketSection />}
+      {activeTab === 'build' && (
         <div style={{ padding: '0 0 100px' }}>
           <BasketBuilderScene tweaks={tweaks} />
+        </div>
+      )}
+      {activeTab === 'three' && (
+        <div style={{ padding: '0 0 100px' }}>
+          <ThreeBasketBuilder tweaks={tweaks} />
         </div>
       )}
     </div>
