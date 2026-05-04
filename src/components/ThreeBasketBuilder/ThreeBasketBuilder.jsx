@@ -38,7 +38,7 @@ export function ThreeBasketBuilder({ tweaks = {} }) {
   const [style,   setStyle]           = useState('crate');
   // items: [{ id, product, rotY, jitterX, jitterZ }]
   const [items,   setItems]           = useState([]);
-  const [openCat, setOpenCat]         = useState('suits');
+  const [openCat, setOpenCat]         = useState(null);
   const [upgradeModal, setUpgradeModal] = useState(null);
 
   // ── Scene init ─────────────────────────────────────────────────────────────

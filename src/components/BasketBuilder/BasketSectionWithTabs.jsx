@@ -8,7 +8,7 @@ const TABS = [
 ];
 
 export function BasketSectionWithTabs({ tweaks = {} }) {
-  const [activeTab, setActiveTab] = useState('build');
+  const [activeTab, setActiveTab] = useState('demo');
 
   return (
     <div className="basket-section-shell">
