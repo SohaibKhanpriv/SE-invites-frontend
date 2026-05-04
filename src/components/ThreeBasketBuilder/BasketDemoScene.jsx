@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
+import { CasinoCounter } from '../BasketBuilder/CasinoCounter';
 import * as THREE from 'three';
 import { CATEGORIES } from '../../config/builderProducts';
 import {
@@ -27,23 +28,24 @@ const HOLD_FULL_MS     = 3200;  // pause once basket is full before reset
 const CLEAR_STAGGER_MS = 220;   // stagger between fly-outs on reset
 
 const DEMO_ITEMS = [
-  { product: CATEGORIES[0].products[0], label: 'Embroidered suit' },          // suit
-  { product: CATEGORIES[4].products[0], label: 'Artisan chocolate box' },     // chocolate
-  { product: CATEGORIES[1].products[0], label: 'Parfum · SE' },               // perfume
-  { product: CATEGORIES[5].products[0], label: 'Scented candle jar' },        // candle
-  { product: CATEGORIES[3].products[0], label: 'Plush keepsake' },            // plush
-  { product: CATEGORIES[2].products[0], label: 'Mini bouquet' },              // bouquet
+  { product: CATEGORIES[0].products[0], label: 'Embroidered suit',      price: 1000 },
+  { product: CATEGORIES[4].products[0], label: 'Artisan chocolate box', price: 1400 },
+  { product: CATEGORIES[1].products[0], label: 'Parfum · SE',           price: 1250 },
+  { product: CATEGORIES[5].products[0], label: 'Scented candle jar',    price:  800 },
+  { product: CATEGORIES[3].products[0], label: 'Plush keepsake',        price:  700 },
+  { product: CATEGORIES[2].products[0], label: 'Mini bouquet',          price: 1100 },
 ];
 
-export function BasketDemoScene() {
+export function BasketDemoScene({ onBuildClick }) {
   const mountRef  = useRef(null);
   const sceneRef  = useRef(null);
   const slotsRef  = useRef([]);
   const meshesRef = useRef([]);   // array of { mesh, item }
   const timerRef  = useRef(null);
 
-  const [activeStep, setActiveStep] = useState(-1);   // which step label is lit
-  const [phase, setPhase]           = useState('adding'); // 'adding' | 'full' | 'clearing'
+  const [activeStep, setActiveStep] = useState(-1);
+  const [phase, setPhase]           = useState('adding');
+  const [runningTotal, setRunningTotal] = useState(0);
 
   // ── Scene init ─────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -118,6 +120,7 @@ export function BasketDemoScene() {
               if (!cancelled) {
                 step = 0;
                 setActiveStep(-1);
+                setRunningTotal(0);
                 setPhase('adding');
                 scheduleNextAdd();
               }
@@ -178,6 +181,7 @@ export function BasketDemoScene() {
         meshesRef.current[step] = { mesh, ...itemRec };
 
         setActiveStep(step);
+        setRunningTotal(DEMO_ITEMS.slice(0, step + 1).reduce((s, d) => s + d.price, 0));
         step++;
         scheduleNextAdd();
       }, ADD_INTERVAL_MS);
@@ -252,13 +256,13 @@ export function BasketDemoScene() {
           </div>
 
           <div style={{ marginTop: 30 }}>
-            <a
+            <button
               className="btn btn-ghost"
-              href="#order"
-              style={{ borderColor: 'var(--gold-soft)', color: 'var(--gold-soft)' }}
+              style={{ borderColor: 'var(--gold-soft)', color: 'var(--gold-soft)', cursor: 'pointer', background: 'none', border: '1px solid var(--gold-soft)', padding: '12px 28px', fontFamily: 'var(--font-body)', letterSpacing: '0.14em', fontSize: 12 }}
+              onClick={onBuildClick}
             >
               Customize a basket &rarr;
-            </a>
+            </button>
           </div>
         </div>
 
@@ -269,9 +273,18 @@ export function BasketDemoScene() {
             ref={mountRef}
             style={{ position: 'relative', overflow: 'hidden', borderRadius: 8 }}
           />
+          {/* Price counter */}
+          {runningTotal > 0 && (
+            <div className="demo-price-card">
+              <div className="demo-price-label">BASKET TOTAL</div>
+              <CasinoCounter value={runningTotal} style="cream" />
+              <div className="demo-price-sub">starting from · PKR</div>
+            </div>
+          )}
+
           <div className="basket-progress-caption">
             {phase === 'full'
-              ? `FULLY ASSEMBLED · RESTARTING SOON`
+              ? 'FULLY ASSEMBLED · RESTARTING SOON'
               : phase === 'clearing'
               ? 'CLEARING BASKET…'
               : `${activeStep + 1} / ${DEMO_ITEMS.length} PIECES · ASSEMBLING`}

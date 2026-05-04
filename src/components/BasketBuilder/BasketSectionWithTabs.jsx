@@ -24,7 +24,7 @@ export function BasketSectionWithTabs({ tweaks = {} }) {
         ))}
       </div>
 
-      {activeTab === 'demo' && <BasketDemoScene />}
+      {activeTab === 'demo' && <BasketDemoScene onBuildClick={() => setActiveTab('build')} />}
       {activeTab === 'build' && (
         <div style={{ padding: '0 0 100px' }}>
           <ThreeBasketBuilder tweaks={tweaks} />
