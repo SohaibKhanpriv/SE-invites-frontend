@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BasketSection as OriginalBasketSection } from '../BasketSection/BasketSection';
+import { BasketDemoScene } from '../ThreeBasketBuilder/BasketDemoScene';
 import { ThreeBasketBuilder } from '../ThreeBasketBuilder/ThreeBasketBuilder';
 
 const TABS = [
@@ -24,7 +24,7 @@ export function BasketSectionWithTabs({ tweaks = {} }) {
         ))}
       </div>
 
-      {activeTab === 'demo' && <OriginalBasketSection />}
+      {activeTab === 'demo' && <BasketDemoScene />}
       {activeTab === 'build' && (
         <div style={{ padding: '0 0 100px' }}>
           <ThreeBasketBuilder tweaks={tweaks} />

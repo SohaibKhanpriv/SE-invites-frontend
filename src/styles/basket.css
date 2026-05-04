@@ -233,3 +233,32 @@
   pointer-events: none;
   animation: firefly 3s ease-in-out infinite;
 }
+
+/* ── Demo tab: 3D basket layout (non-scroll, auto-play) ── */
+
+.basket-demo-layout {
+  width: min(92vw, 1280px);
+  margin: 0 auto;
+  padding: 80px 0 100px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+}
+
+.demo-three-stage {
+  width: 100%;
+  height: min(58vh, 520px);
+  background: transparent;
+}
+
+@media (max-width: 900px) {
+  .basket-demo-layout {
+    grid-template-columns: 1fr;
+    padding: 48px 0 72px;
+  }
+
+  .demo-three-stage {
+    height: min(52vh, 400px);
+  }
+}
